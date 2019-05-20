@@ -47,4 +47,12 @@ public class SwipeJump : MonoBehaviour
             jumpAllowed = false;
         }
     }
+ void OnTriggerEnter2D (Collider2D col)
+    {
+        if(col.gameObject.tag == "Coin")
+        {
+            Debug.Log("Jugador");
+            Destroy(col.gameObject);
+        }
+    }
 }
