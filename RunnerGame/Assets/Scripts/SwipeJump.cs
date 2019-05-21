@@ -5,14 +5,17 @@ using UnityEngine;
 public class SwipeJump : MonoBehaviour
 {
 
+    GameManager gameManager;
+
     private Vector2 startTouchPosition, endTouchPosition;
     private Rigidbody2D rb;
-    private float jumpForce = 700f; //Fuerza del salto
+    public float jumpForce = 800f; //Fuerza del salto
     private bool jumpAllowed = false;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>(); 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();  
     }
 
     // Update is called once per frame
@@ -45,14 +48,19 @@ public class SwipeJump : MonoBehaviour
         {
             rb.AddForce (Vector2.up * jumpForce);
             jumpAllowed = false;
+            
         }
     }
- void OnTriggerEnter2D (Collider2D col)
+ void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Coin")
         {
+           
             Debug.Log("Jugador");
             Destroy(col.gameObject);
+            gameManager.AddScore();
+            
+            
         }
     }
 }
