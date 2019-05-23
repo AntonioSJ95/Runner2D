@@ -20,7 +20,6 @@ public class DestroyCoin : MonoBehaviour
     {
         if(col.gameObject.tag == "Coin")
         {
-            Debug.Log("Suelo");
             Destroy(col.gameObject);
         }
     }
