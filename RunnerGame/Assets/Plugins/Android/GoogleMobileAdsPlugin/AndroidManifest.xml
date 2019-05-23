@@ -15,7 +15,7 @@ required for displaying ads.
     ca-app-pub-3940256099942544~3347511713 -->
     <meta-data
     android:name="com.google.android.gms.ads.APPLICATION_ID"
-    android:value="ca-app-pub-3940256099942544~3347511713"/>
+    android:value="ca-app-pub-8471546921544328~1274152796"/>
 <activity android:name="com.unity3d.player.UnityPlayerNativeActivity"
    android:label="@string/app_name">
    <intent-filter>
