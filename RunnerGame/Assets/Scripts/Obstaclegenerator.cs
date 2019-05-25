@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coingenerator : MonoBehaviour
+public class Obstaclegenerator : MonoBehaviour
 {
-    public GameObject coin;
+public GameObject obstacle;
     public float respawntime = 1.0f;
     private Vector2 screenBounds;
     // Start is called before the first frame update
@@ -14,19 +14,17 @@ public class Coingenerator : MonoBehaviour
         StartCoroutine(coinWave());
     }
 
-    private void spawnCoin(){
-        GameObject a = Instantiate(coin) as GameObject;
-        a.transform.position = new Vector2(screenBounds.x * 2, Random.Range(-screenBounds.y, screenBounds.y));
+    private void spawnObstacle(){
+        GameObject a = Instantiate(obstacle) as GameObject;
+        a.transform.position = new Vector2(screenBounds.x * 4, Random.Range(-screenBounds.y, screenBounds.y));
     }
-
-    
 
 
     IEnumerator coinWave()
     {
         while(true){
             yield return new WaitForSeconds(respawntime);
-            spawnCoin();
+            spawnObstacle();
         }
         
     }

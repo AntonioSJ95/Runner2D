@@ -22,5 +22,10 @@ public class DestroyCoin : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+
+        if (col.gameObject.tag == "Obstacle")
+        {
+            Destroy(col.gameObject);
+        }
     }
 }

@@ -5,15 +5,10 @@ using UnityEngine;
 public class SwipeJump : MonoBehaviour
 {
     GameManager gameManager;
-    public GameObject gravity;
+   // public GameObject gravity;
     private bool top;
     private Vector2 startTouchPosition, endTouchPosition;
     private Rigidbody2D rb;
-    public float jumpForce = 800f; //Fuerza del salto
-    private bool jumpAllowed = false;
-    private bool jumpAllowedSky = false;
-    private bool checkJump = false;
-
     private bool facingRight = true;
     // Start is called before the first frame update
     void Start()
@@ -30,28 +25,15 @@ public class SwipeJump : MonoBehaviour
         {
             if(Input.GetTouch(i).phase == TouchPhase.Began)
             {
-                if(Input.GetTouch(i).tapCount == 2)
+                if(Input.GetTouch(i).tapCount == 1)
                 {
                     rb.gravityScale *= -1;
                     Rotation(); 
-                    checkJump = !checkJump;
                     Flip();
                 } 
             }
         }
-
-        //Boleano para permitir ambos saltos sin que choquen
-        if(checkJump == true)
-        {
-            SwipeCheckSky();
-        } 
-        if(checkJump == false)
-        {
-            SwipeCheck();
-        } 
     }
-
-
     //Activa la rotacion del personaje
      void Rotation()
     {
@@ -68,59 +50,7 @@ public class SwipeJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        JumpIfAllowed(); //Verifica si el salto es permitido
-        JumpIfAllowedSky();
     }
-
-    //Checa si esta disponible el salto en el suelo
-    private void SwipeCheck()
-    {
-        if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began)
-        startTouchPosition = Input.GetTouch(0).position;
-
-        if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended)
-        {
-            endTouchPosition = Input.GetTouch(0).position;
-            if(endTouchPosition.y > startTouchPosition.y && rb.velocity.y == 0)
-            jumpAllowed = true;
-        }
-    }
-
-
-    //Checa si esta disponible el salto en el cielo
-    private void SwipeCheckSky()
-    {
-        if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began)
-        startTouchPosition = Input.GetTouch(0).position;
-        if(Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended)
-        {
-            endTouchPosition = Input.GetTouch(0).position;
-            if(endTouchPosition.y > startTouchPosition.y && rb.velocity.y == 0)
-            jumpAllowedSky = true;
-        }
-    }
-
-
-    //Verifica si se puede saltar en el suelo
-    public void JumpIfAllowed()
-    {
-        if (jumpAllowed)
-        {
-            rb.AddForce (Vector2.up  * jumpForce);
-            jumpAllowed = false;
-        }  
-    }
-
-    //Verifica si se puede saltar en el cielo
-    public void JumpIfAllowedSky()
-    {
-        if(jumpAllowedSky)
-        {
-            rb.AddForce(Vector2.down * jumpForce);
-            jumpAllowedSky = false;
-        }
-    }
-
 
     //Voltea cara del personaje para estar bien orientado
     void Flip()
@@ -138,6 +68,10 @@ public class SwipeJump : MonoBehaviour
         {
             Destroy(col.gameObject);
             gameManager.AddScore();
-        }
+        }else if(col.gameObject.tag == "Obstacle")
+       {
+           Destroy(col.gameObject);
+           GameManager.health -= 1;
+       } 
     }
 }
