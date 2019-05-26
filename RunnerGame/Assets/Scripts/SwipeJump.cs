@@ -66,12 +66,22 @@ public class SwipeJump : MonoBehaviour
     {
         if(col.gameObject.tag == "Coin")
         {
+            addSpeed();
             Destroy(col.gameObject);
             gameManager.AddScore();
+            
         }else if(col.gameObject.tag == "Obstacle")
        {
            Destroy(col.gameObject);
            GameManager.health -= 1;
        } 
+    }
+
+    void addSpeed()
+    {
+        if(GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime > 1.9f)
+        {
+            GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime += 0.05f;
+        }
     }
 }

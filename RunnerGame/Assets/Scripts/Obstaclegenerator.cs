@@ -5,7 +5,7 @@ using UnityEngine;
 public class Obstaclegenerator : MonoBehaviour
 {
 public GameObject obstacle;
-    public float respawntime = 1.0f;
+    public float respawntime;
     private Vector2 screenBounds;
     // Start is called before the first frame update
     void Start()
