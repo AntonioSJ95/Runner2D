@@ -16,7 +16,7 @@ public GameObject obstacle;
 
     private void spawnObstacle(){
         GameObject a = Instantiate(obstacle) as GameObject;
-        a.transform.position = new Vector2(screenBounds.x * 4, Random.Range(-screenBounds.y, screenBounds.y));
+        a.transform.position = new Vector2(screenBounds.x * 2, Random.Range(-screenBounds.y, screenBounds.y));
     }
 
 

@@ -79,9 +79,9 @@ public class SwipeJump : MonoBehaviour
 
     void addSpeed()
     {
-        if(GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime > 1.9f)
+        if(GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime > 0.50f)
         {
-            GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime += 0.05f;
+            GameObject.Find("Obstacles").GetComponent<Obstaclegenerator>().respawntime -= 0.02f;
         }
     }
 }
