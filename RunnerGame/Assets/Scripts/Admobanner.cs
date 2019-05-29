@@ -36,9 +36,7 @@ public class Admobanner : MonoBehaviour
         bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
 
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder()
-        .AddTestDevice("613E9D68E533C19F4155910CDEBF7312")
-        .Build();
+        AdRequest request = new AdRequest.Builder().Build();
 
         // Load the banner with the request.
         bannerView.LoadAd(request);

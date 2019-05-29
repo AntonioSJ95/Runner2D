@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public Text currentScoreText;
      public int currentScore;
-     public GameObject heart1, heart2, heart3, character,leaderboard, play, coin, obstacle;
+     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle;
      public static int health; 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
         heart3.gameObject.SetActive(true);
-        leaderboard.gameObject.SetActive(false);
-        play.gameObject.SetActive(false);
+        panel.gameObject.SetActive(false);
         coin.gameObject.SetActive(true);
         obstacle.gameObject.SetActive(true);
     }
@@ -38,30 +37,26 @@ public class GameManager : MonoBehaviour
             heart1.gameObject.SetActive(true);
             heart2.gameObject.SetActive(true);
             heart3.gameObject.SetActive(true);
-            leaderboard.gameObject.SetActive(false);
-            play.gameObject.SetActive(false);
+            panel.gameObject.SetActive(false);
             break;
             case 2:
             heart1.gameObject.SetActive(false);
             heart2.gameObject.SetActive(true);
             heart3.gameObject.SetActive(true);
-            leaderboard.gameObject.SetActive(false);
-            play.gameObject.SetActive(false);
+            panel.gameObject.SetActive(false);
             break;
             case 1:
             heart1.gameObject.SetActive(false);
             heart2.gameObject.SetActive(false);
             heart3.gameObject.SetActive(true);
-            leaderboard.gameObject.SetActive(false);
-            play.gameObject.SetActive(false);
+            panel.gameObject.SetActive(false);
             break;
             case 0:
             heart1.gameObject.SetActive(false);
             heart2.gameObject.SetActive(false);
             heart3.gameObject.SetActive(false);
             character.gameObject.SetActive(false);
-            leaderboard.gameObject.SetActive(true);
-            play.gameObject.SetActive(true);
+            panel.gameObject.SetActive(true);
             coin.gameObject.SetActive(false);
             obstacle.gameObject.SetActive(false);
             break;
@@ -79,6 +74,17 @@ public class GameManager : MonoBehaviour
     {
         currentScoreText.text = currentScore.ToString();
         
+    }
+
+    public void RateUs()
+    {
+        #if UNITY_ANDROID
+        Application.OpenURL("details?id=com.Frix.RunnerGame&hl=es&ah=lYhqvWydJkzISby2rFkOiTQhbBs");
+
+        #elif UNITY_IPHONE
+        Application.OpenURL("details?id=com.Frix.RunnerGame&hl=es&ah=lYhqvWydJkzISby2rFkOiTQhbBs");
+
+        #endif
     }
 
 

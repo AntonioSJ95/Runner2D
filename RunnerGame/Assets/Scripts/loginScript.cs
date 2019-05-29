@@ -8,12 +8,12 @@ using GoogleMobileAds.Api;
 
 public class loginScript : MonoBehaviour
 {
-    private BannerView bannerView;
+    
     // Start is called before the first frame update
     void Start()
     {
         // Recommended for debugging
-       PlayGamesPlatform.DebugLogEnabled = true;
+       PlayGamesPlatform.DebugLogEnabled = false;
 
        // Activate the Google Play Games platform
        PlayGamesPlatform.Activate();
