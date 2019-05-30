@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using System;
+using GoogleMobileAds;
+
 
 public class admobVideo : MonoBehaviour
 {
@@ -18,27 +21,39 @@ public class admobVideo : MonoBehaviour
                  
          // Create an interstitial.
          this.interstitial = new InterstitialAd(adUnitId);
+         // Called when the ad is closed.
+        this.interstitial.OnAdClosed += HandleOnAdClosed;
          // Load an interstitial ad.
          this.interstitial.LoadAd(this.CreateAdRequest());
+         
      }
+
      
      // Returns an ad request
      private AdRequest CreateAdRequest()
      {
+         
          return new AdRequest.Builder().Build();
+         
+     }
+
+     public void HandleOnAdClosed(object sender, EventArgs args)
+     {
+         interstitial.Destroy();
      }
      
      private void ShowInterstitial()
      { 
          if (interstitial.IsLoaded())
          {
-             interstitial.Show(); 
+             interstitial.Show();
          }
      }
      
      public void Start()
      {
          RequestInterstitial();
+        
      }
      
      void Update()
