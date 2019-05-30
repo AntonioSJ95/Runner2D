@@ -23,6 +23,7 @@ public class admobVideo : MonoBehaviour
          this.interstitial = new InterstitialAd(adUnitId);
          // Called when the ad is closed.
         this.interstitial.OnAdClosed += HandleOnAdClosed;
+        
          // Load an interstitial ad.
          this.interstitial.LoadAd(this.CreateAdRequest());
          
@@ -41,6 +42,11 @@ public class admobVideo : MonoBehaviour
      {
          interstitial.Destroy();
      }
+
+     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
+    {
+        interstitial.Destroy();
+    }
      
      private void ShowInterstitial()
      { 
@@ -58,7 +64,10 @@ public class admobVideo : MonoBehaviour
      
      void Update()
      {
-         ShowInterstitial();
+        ShowInterstitial();
+         // Called when the ad click caused the user to leave the application.
+        this.interstitial.OnAdLeavingApplication += HandleOnAdLeavingApplication;
+        this.interstitial.OnAdClosed += HandleOnAdClosed;
      }
  }
 
