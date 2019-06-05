@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     public void RateUs()
     {
         #if UNITY_ANDROID
-        Application.OpenURL("details?id=com.Frix.RunnerGame&hl=es&ah=lYhqvWydJkzISby2rFkOiTQhbBs");
+        Application.OpenURL("market://details?id=com.Frix.RunnerGame");
 
         #elif UNITY_IPHONE
         Application.OpenURL("details?id=com.Frix.RunnerGame&hl=es&ah=lYhqvWydJkzISby2rFkOiTQhbBs");
