@@ -310,7 +310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This game contains ads in order to develop more games
+  m_Text: Ads keep this game totally free
 --- !u!222 &102329214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Este juego contiene ads para poder seguir desarrollando videojuegos
+  m_Text: Los ADS son para mantener el juego totalmente gratis
 --- !u!222 &142665701
 CanvasRenderer:
   m_ObjectHideFlags: 0
