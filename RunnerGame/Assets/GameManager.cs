@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using GoogleMobileAds.Api;
+using System;
+using GoogleMobileAds;
 public class GameManager : MonoBehaviour
 {
+
+    private InterstitialAd interstitial;
     public Text currentScoreText;
      public int currentScore;
-     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle;
+     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause;
      public static int health; 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,9 @@ public class GameManager : MonoBehaviour
         panel.gameObject.SetActive(false);
         coin.gameObject.SetActive(true);
         obstacle.gameObject.SetActive(true);
+        pause.gameObject.SetActive(true);
+        RequestInterstitial();
+        
     }
 
     // Update is called once per frame
@@ -59,6 +67,8 @@ public class GameManager : MonoBehaviour
             panel.gameObject.SetActive(true);
             coin.gameObject.SetActive(false);
             obstacle.gameObject.SetActive(false);
+            pause.gameObject.SetActive(false);
+            GameOver();
             break;
         }
     }
@@ -102,4 +112,34 @@ public class GameManager : MonoBehaviour
             }
         });     
         }
+
+     private void RequestInterstitial()
+     {
+         #if UNITY_ANDROID
+             string adUnitId = "ca-app-pub-8471546921544328/8961198402";
+         #elif UNITY_IPHONE
+             string adUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
+         #else
+             string adUnitId = "unexpected_platform";
+         #endif
+                 
+         // Initialize an InterstitialAd.
+        this.interstitial = new InterstitialAd(adUnitId);
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+         // Load the interstitial with the request.
+         this.interstitial.LoadAd(request); 
+         
+     }
+
+     private void GameOver()
+     {
+         if(this.interstitial.IsLoaded())
+         {
+             this.interstitial.Show();
+             Debug.Log("ad gameover");
+         }
+     }
+
+
 }

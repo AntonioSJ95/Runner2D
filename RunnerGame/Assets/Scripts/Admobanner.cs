@@ -20,8 +20,6 @@ public class Admobanner : MonoBehaviour
 
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(appId);
-
-         bannerView.OnAdLeavingApplication += HandleOnAdLeavingApplication;
         this.RequestBanner();
     }
 
@@ -43,14 +41,7 @@ public class Admobanner : MonoBehaviour
 
         // Load the banner with the request.
         bannerView.LoadAd(request);
-
-        // Called when the ad click caused the user to leave the application.
-        bannerView.OnAdLeavingApplication += HandleOnAdLeavingApplication;
     }
 
-    public void HandleOnAdLeavingApplication(object sender, EventArgs args)
-    {
-        bannerView.Destroy();
-    }
 }
 
