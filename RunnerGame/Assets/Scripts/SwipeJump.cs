@@ -8,8 +8,13 @@ public class SwipeJump : MonoBehaviour
    // public GameObject gravity;
     private bool top;
     private Vector2 startTouchPosition, endTouchPosition;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private bool facingRight = true;
+
+    private bool isGrounded;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask whatIsGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,24 +23,17 @@ public class SwipeJump : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+  public  void Update()
     {
-
-        for( var i = 0; i < Input.touchCount; ++i)
-        {
-            if(Input.GetTouch(i).phase == TouchPhase.Began)
-            {
-                if(Input.GetTouch(i).tapCount == 1)
+                if(Input.GetMouseButtonDown(0) && isGrounded == true)
                 {
                     rb.gravityScale *= -1;
                     Rotation(); 
                     Flip();
-                } 
-            }
-        }
+                }
     }
     //Activa la rotacion del personaje
-     void Rotation()
+     public void Rotation()
     {
         if(top == false)
         {
@@ -50,10 +48,11 @@ public class SwipeJump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     //Voltea cara del personaje para estar bien orientado
-    void Flip()
+   public void Flip()
     {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;

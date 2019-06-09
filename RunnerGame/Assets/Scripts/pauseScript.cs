@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 [RequireComponent(typeof(AudioSource))]
@@ -13,14 +14,15 @@ public class pauseScript : MonoBehaviour
     public bool paused;
 
     public GameObject jugador;
-    public string scr;
+    
     // Start is called before the first frame update
     void Start()
     {
         songSource = GetComponent<AudioSource>();
         paused = false;
-        (jugador.GetComponent(scr) as MonoBehaviour).enabled = true;
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -37,7 +39,8 @@ public class pauseScript : MonoBehaviour
             Time.timeScale = 0;
             songSource.clip = song;
             songSource.Pause();
-          (jugador.GetComponent(scr) as MonoBehaviour).enabled = false;
+           jugador.GetComponent<SwipeJump>().enabled = false;
+          
             
         }
         else if(!paused)
@@ -45,7 +48,10 @@ public class pauseScript : MonoBehaviour
             Time.timeScale = 1;
             songSource.clip = song;
             songSource.Play(0);
-          (jugador.GetComponent(scr) as MonoBehaviour).enabled = true;
+            jugador.GetComponent<SwipeJump>().enabled = true;
+         
         }
     }
+
+    
 }
