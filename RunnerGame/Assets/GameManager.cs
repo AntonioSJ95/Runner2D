@@ -11,6 +11,8 @@ using GoogleMobileAds;
 public class GameManager : MonoBehaviour
 {
 
+    [SerializeField]
+    private BackgroundElement[] BackgroundElement;
     private InterstitialAd interstitial;
     public Text currentScoreText;
      public int currentScore;
@@ -71,6 +73,15 @@ public class GameManager : MonoBehaviour
             GameOver();
             break;
         }
+
+        if(true)
+        {
+            foreach(BackgroundElement element in BackgroundElement)
+        {
+            element.Move();
+        }
+        }
+        
     }
 
     public void AddScore()
