@@ -66,8 +66,7 @@ public class SwipeJump : MonoBehaviour
         if(col.gameObject.tag == "Coin")
         {   
             soundManagerScript.PlaySound("coin");
-            HealthBarScript.health += 5f;
-            print("se curo para health bar");
+            HealthBarScript.health += 7f;
             addSpeed();
             Destroy(col.gameObject);
             gameManager.AddScore();
@@ -77,7 +76,6 @@ public class SwipeJump : MonoBehaviour
        {    
            soundManagerScript.PlaySound("playerHit");
            HealthBarScript.health -= 5f;
-           print("lastimado para health bar");
            Destroy(col.gameObject);
            GameManager.health -= 1;
            

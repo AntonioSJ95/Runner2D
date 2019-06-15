@@ -22,7 +22,7 @@ public class HealthBarScript : MonoBehaviour
     public static float health;
 
     public int currentTimer;
-    public GameObject character,panel,healthBar1,ResetGame,pause,obstacle,coin;
+    public GameObject character,panel,healthBar1,ResetGame,obstacle,coin;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,7 @@ public class HealthBarScript : MonoBehaviour
 
         healthBar.fillAmount = health / maxHealth;
 
-        health -= 0.05f;
+        health -= 0.07f;
 
         
 
