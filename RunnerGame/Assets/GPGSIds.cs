@@ -25,6 +25,7 @@
 public static class GPGSIds
 {
         public const string leaderboard_coins = "CgkIycCrgbUbEAIQAA"; // <GPGSID>
+        public const string leaderboard_hardcore = "CgkIycCrgbUbEAIQAg"; // <GPGSID>
 
 }
 

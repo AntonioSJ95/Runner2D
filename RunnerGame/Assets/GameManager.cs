@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private InterstitialAd interstitial;
     public Text currentScoreText;
      public int currentScore;
-     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause;
+     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause, ResetGame;
      public static int health; 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,14 @@ public class GameManager : MonoBehaviour
         coin.gameObject.SetActive(true);
         obstacle.gameObject.SetActive(true);
         pause.gameObject.SetActive(true);
+        ResetGame.gameObject.SetActive(true);
         RequestInterstitial();
+
+        foreach(BackgroundElement element in BackgroundElement)
+        {
+            element.Move();
+        }
+        
         
     }
 
@@ -70,17 +77,18 @@ public class GameManager : MonoBehaviour
             coin.gameObject.SetActive(false);
             obstacle.gameObject.SetActive(false);
             pause.gameObject.SetActive(false);
+            ResetGame.gameObject.SetActive(false);
             GameOver();
             break;
         }
 
-        if(true)
-        {
-            foreach(BackgroundElement element in BackgroundElement)
+         foreach(BackgroundElement element in BackgroundElement)
         {
             element.Move();
         }
-        }
+        
+
+        
         
     }
 
@@ -93,8 +101,7 @@ public class GameManager : MonoBehaviour
 
     void SetScore()
     {
-        currentScoreText.text = currentScore.ToString();
-        
+        currentScoreText.text = currentScore.ToString();   
     }
 
     public void RateUs()
@@ -122,7 +129,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("Nel perro no se publico");
             }
         });     
-        }
+    }
 
      private void RequestInterstitial()
      {

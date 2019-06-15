@@ -24,7 +24,7 @@ public class fadeControl : MonoBehaviour
     IEnumerator Fading()
     {
         anim.SetBool("Fade", true);
-        yield return new WaitForSeconds(9);
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Inicio");
     }
 }

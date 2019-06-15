@@ -9,6 +9,16 @@ public class startGame : MonoBehaviour
     {
         SceneManager.LoadScene("Juego");
     }
+
+    public void ResetHardcore()
+    {
+        SceneManager.LoadScene("Hardcore");
+    }
+
+      public void MainMenu()
+    {
+        SceneManager.LoadScene("Inicio");
+    }
 }
 
 

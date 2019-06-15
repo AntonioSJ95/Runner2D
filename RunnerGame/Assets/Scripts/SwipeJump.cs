@@ -64,15 +64,23 @@ public class SwipeJump : MonoBehaviour
      void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Coin")
-        {
+        {   
+            soundManagerScript.PlaySound("coin");
+            HealthBarScript.health += 5f;
+            print("se curo para health bar");
             addSpeed();
             Destroy(col.gameObject);
             gameManager.AddScore();
             
-        }else if(col.gameObject.tag == "Obstacle")
-       {
+        }
+        else if(col.gameObject.tag == "Obstacle")
+       {    
+           soundManagerScript.PlaySound("playerHit");
+           HealthBarScript.health -= 5f;
+           print("lastimado para health bar");
            Destroy(col.gameObject);
            GameManager.health -= 1;
+           
        } 
     }
 

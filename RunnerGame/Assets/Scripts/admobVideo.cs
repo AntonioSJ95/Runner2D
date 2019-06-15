@@ -47,6 +47,11 @@ public class admobVideo : MonoBehaviour
          }
      }
      
+
+     public void Awake()
+     {
+         Application.targetFrameRate = 60;
+     }
      public void Start()
      {
          RequestInterstitial();
