@@ -1321,19 +1321,36 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6086957, y: 2.6086957}
-    newSize: {x: 3, y: 3}
+    oldSize: {x: 3.3333333, y: 3.3333333}
+    newSize: {x: 2.5, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.43478262, y: 1.3043479}
-      - {x: -0.6086957, y: 1.3043479}
-      - {x: -0.6086957, y: -0.6086957}
-      - {x: -0.5217391, y: -1.3043479}
-      - {x: 0.43478262, y: -1.3043479}
+    - - {x: 0.73333335, y: 0.36666667}
+      - {x: 0.73333335, y: 0.26666668}
+      - {x: 0.73333335, y: 0.5}
+      - {x: 0.8000001, y: 0.5666667}
+      - {x: 0.8333334, y: 0.86666673}
+      - {x: 0.8000001, y: 1.3666668}
+      - {x: 0.53333336, y: 1.4333334}
+      - {x: -0.53333336, y: 1.4333334}
+      - {x: -1.0333334, y: 0.033333335}
+      - {x: -0.5666667, y: -0.20000002}
+      - {x: -0.33333334, y: -0.13333334}
+      - {x: -0.26666668, y: -0.06666667}
+      - {x: -0.5, y: -0.6333334}
+      - {x: -0.6666667, y: -0.43333337}
+      - {x: -0.90000004, y: -0.36666667}
+      - {x: -1.1, y: -0.6333334}
+      - {x: -1.1, y: -1.2}
+      - {x: -0.43333337, y: -1.4666667}
+      - {x: 1, y: -1.4666667}
+      - {x: 1.1333334, y: -1}
+      - {x: 1.1333334, y: 0.40000004}
+      - {x: 0.8333334, y: 0.53333336}
 --- !u!212 &805706528
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1372,13 +1389,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -5643105228771564274, guid: 5fb771b340772214cad222cfa5793cc1,
+  m_Sprite: {fileID: 8774777088517460525, guid: 343711a157578fb429b1959cf362af6c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.5, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1427,7 +1444,7 @@ Animator:
   m_GameObject: {fileID: 805706525}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 029faa7e01bd675408fc45037370be07, type: 2}
+  m_Controller: {fileID: 9100000, guid: f7ba7c71f7170aa4396fda62cd15e899, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
