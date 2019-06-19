@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class startGame : MonoBehaviour
 {
-   public void GotoMainScene()
+   public void GoToClasic()
     {
         SceneManager.LoadScene("Juego");
     }
@@ -18,6 +18,11 @@ public class startGame : MonoBehaviour
       public void MainMenu()
     {
         SceneManager.LoadScene("Inicio");
+    }
+
+    public void GoToOnekill()
+    {
+        SceneManager.LoadScene("Onekill");
     }
 }
 

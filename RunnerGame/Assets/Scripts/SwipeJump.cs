@@ -5,11 +5,12 @@ using UnityEngine;
 public class SwipeJump : MonoBehaviour
 {
     GameManager gameManager;
-   // public GameObject gravity;
     private bool top;
     private Vector2 startTouchPosition, endTouchPosition;
     public Rigidbody2D rb;
     private bool facingRight = true;
+
+    onekillScript onekillScript;
 
     private bool isGrounded;
     public Transform groundCheck;
@@ -65,11 +66,13 @@ public class SwipeJump : MonoBehaviour
     {
         if(col.gameObject.tag == "Coin")
         {   
+//            onekillScript.AddScore();
             soundManagerScript.PlaySound("coin");
             HealthBarScript.health += 7f;
             addSpeed();
             Destroy(col.gameObject);
             gameManager.AddScore();
+          
             
         }
         else if(col.gameObject.tag == "Obstacle")
@@ -78,6 +81,7 @@ public class SwipeJump : MonoBehaviour
            HealthBarScript.health -= 5f;
            Destroy(col.gameObject);
            GameManager.health -= 1;
+            onekillScript.health -= 1;
            
        } 
     }

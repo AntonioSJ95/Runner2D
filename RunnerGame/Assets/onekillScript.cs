@@ -8,7 +8,7 @@ using GooglePlayGames.BasicApi;
 using GoogleMobileAds.Api;
 using System;
 using GoogleMobileAds;
-public class GameManager : MonoBehaviour
+public class onekillScript : MonoBehaviour
 {
 
     [SerializeField]
@@ -16,14 +16,14 @@ public class GameManager : MonoBehaviour
     private InterstitialAd interstitial;
     public Text currentScoreText;
      public int currentScore;
-     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause, ResetGame,heartHardcore;
+     public GameObject character,panel, coin, obstacle, pause, ResetGame,heartHardcore;
      public static int health, healthHardcore; 
     // Start is called before the first frame update
     void Start()
     {
         currentScore = 0;
         SetScore();
-        health = 3;
+        health = 1;
         RequestInterstitial();
 
         foreach(BackgroundElement element in BackgroundElement)
@@ -42,33 +42,17 @@ public class GameManager : MonoBehaviour
         {
             element.Move();
         }
-        if(health > 3)
-        health = 3;
+        if(health > 1)
+        health = 1;
 
         switch (health) 
         {
-            case 3:
-            heart1.gameObject.SetActive(true);
-            heart2.gameObject.SetActive(true);
-            heart3.gameObject.SetActive(true);
-            panel.gameObject.SetActive(false);
-            break;
-            case 2:
-            heart1.gameObject.SetActive(false);
-            heart2.gameObject.SetActive(true);
-            heart3.gameObject.SetActive(true);
-            panel.gameObject.SetActive(false);
-            break;
             case 1:
-            heart1.gameObject.SetActive(false);
-            heart2.gameObject.SetActive(false);
-            heart3.gameObject.SetActive(true);
+            heartHardcore.gameObject.SetActive(true);
             panel.gameObject.SetActive(false);
             break;
             case 0:
-            heart1.gameObject.SetActive(false);
-            heart2.gameObject.SetActive(false);
-            heart3.gameObject.SetActive(false);
+            heartHardcore.gameObject.SetActive(false);
             character.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
             coin.gameObject.SetActive(false);

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hardcore.unity
     guid: e0b2a00f5c6c2b848968c9a8470750a8
+  - enabled: 1
+    path: Assets/Scenes/Onekill.unity
+    guid: 2b25b0374007ece4f855300ec4d20261
   m_configObjects: {}

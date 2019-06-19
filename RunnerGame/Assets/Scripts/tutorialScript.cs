@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class tutorialScript : MonoBehaviour
 {
-    public GameObject mainPanel,tutorialPanel;
+    public GameObject mainPanel,tutorialPanel, gamePanel;
     
     // Start is called before the first frame update
     void Start()
     {
         mainPanel.SetActive(true);
         tutorialPanel.SetActive(false);
+        gamePanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,5 +26,23 @@ public class tutorialScript : MonoBehaviour
     {
         mainPanel.SetActive(false);
         tutorialPanel.SetActive(true);
+        gamePanel.SetActive(false);
     }
+
+    public void showGames()
+    {
+        mainPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
+        gamePanel.SetActive(true);
+    }
+
+    public void exitTutorial()
+    {
+        mainPanel.SetActive(true);
+        tutorialPanel.SetActive(false);
+        gamePanel.SetActive(false);
+    }
+
+
+
 }
