@@ -1249,7 +1249,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 519420033}
-          m_MethodName: ResetHardcore
+          m_MethodName: GoToOnekill
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

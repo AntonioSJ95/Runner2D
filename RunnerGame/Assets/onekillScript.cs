@@ -14,14 +14,14 @@ public class onekillScript : MonoBehaviour
     [SerializeField]
     private BackgroundElement[] BackgroundElement;
     private InterstitialAd interstitial;
-    public Text currentScoreText;
-     public int currentScore;
+    public Text currentHardcoreText;
+     public int scoreHardcore;
      public GameObject character,panel, coin, obstacle, pause, ResetGame,heartHardcore;
-     public static int health, healthHardcore; 
+     public static int health; 
     // Start is called before the first frame update
     void Start()
     {
-        currentScore = 0;
+        scoreHardcore = 0;
         SetScore();
         health = 1;
         RequestInterstitial();
@@ -64,16 +64,16 @@ public class onekillScript : MonoBehaviour
         }
     }
 
-    public void AddScore()
+    public void AddScoreHardcore()
     {
-        currentScore++;
+        scoreHardcore++;
         SetScore();
-        PostToLeaderboard(currentScore);
+        PostToLeaderboard(scoreHardcore);
     }
 
     void SetScore()
     {
-        currentScoreText.text = currentScore.ToString();   
+        currentHardcoreText.text = scoreHardcore.ToString();   
     }
 
     public void RateUs()
@@ -89,16 +89,16 @@ public class onekillScript : MonoBehaviour
 
 
     //Publica el score
-    public static void PostToLeaderboard(int currentScoreText)
+    public static void PostToLeaderboard(int currentHardcoreText)
     {
-        Social.ReportScore(currentScoreText, GPGSIds.leaderboard_coins, (bool success) => {
+        Social.ReportScore(currentHardcoreText, GPGSIds.leaderboard_hardcore, (bool success) => {
             if(success)
             {
-                Debug.Log("Se publico el score prro");
+                Debug.Log("Si hardcore");
             }
             else
             {
-                Debug.LogError("Nel perro no se publico");
+                Debug.LogError("No hardcore");
             }
         });     
     }

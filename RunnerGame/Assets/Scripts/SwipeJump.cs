@@ -5,13 +5,11 @@ using UnityEngine;
 public class SwipeJump : MonoBehaviour
 {
     GameManager gameManager;
+    onekillScript oneKillScript;
     private bool top;
     private Vector2 startTouchPosition, endTouchPosition;
     public Rigidbody2D rb;
     private bool facingRight = true;
-
-    onekillScript onekillScript;
-
     private bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
@@ -21,6 +19,7 @@ public class SwipeJump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        oneKillScript = GameObject.Find("Sky").GetComponent<onekillScript>();
     }
 
     // Update is called once per frame
@@ -65,14 +64,13 @@ public class SwipeJump : MonoBehaviour
      void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.tag == "Coin")
-        {   
-//            onekillScript.AddScore();
+        { 
+             
             soundManagerScript.PlaySound("coin");
             HealthBarScript.health += 7f;
             addSpeed();
             Destroy(col.gameObject);
-            gameManager.AddScore();
-          
+            gameManager.AddScore(); 
             
         }
         else if(col.gameObject.tag == "Obstacle")
@@ -82,8 +80,15 @@ public class SwipeJump : MonoBehaviour
            Destroy(col.gameObject);
            GameManager.health -= 1;
             onekillScript.health -= 1;
-           
-       } 
+       }
+       else if(col.gameObject.tag == "CoinHard")
+       {
+            soundManagerScript.PlaySound("coin");
+            HealthBarScript.health += 7f;
+            addSpeed();
+            Destroy(col.gameObject);
+            oneKillScript.AddScoreHardcore();
+       }
     }
 
     void addSpeed()

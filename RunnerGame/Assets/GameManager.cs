@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     private InterstitialAd interstitial;
     public Text currentScoreText;
      public int currentScore;
-     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause, ResetGame,heartHardcore;
-     public static int health, healthHardcore; 
+     public GameObject heart1, heart2, heart3, character,panel, coin, obstacle, pause, ResetGame;
+     public static int health; 
     // Start is called before the first frame update
     void Start()
     {
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         currentScore++;
         SetScore();
-        PostToLeaderboard(currentScore);
+        PostToLeaderboard(currentScore);  
     }
 
     void SetScore()
@@ -107,17 +107,18 @@ public class GameManager : MonoBehaviour
     //Publica el score
     public static void PostToLeaderboard(int currentScoreText)
     {
-        Social.ReportScore(currentScoreText, GPGSIds.leaderboard_coins, (bool success) => {
+        Social.ReportScore(currentScoreText, GPGSIds.leaderboard_classic, (bool success) => {
             if(success)
             {
-                Debug.Log("Se publico el score prro");
+                Debug.Log("Si Classic");
             }
             else
             {
-                Debug.LogError("Nel perro no se publico");
+                Debug.LogError("No classic");
             }
         });     
     }
+
 
      private void RequestInterstitial()
      {

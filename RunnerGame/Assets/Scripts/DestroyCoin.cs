@@ -15,5 +15,10 @@ public class DestroyCoin : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+
+        if (col.gameObject.tag == "CoinHard")
+        {
+            Destroy(col.gameObject);
+        }
     }
 }

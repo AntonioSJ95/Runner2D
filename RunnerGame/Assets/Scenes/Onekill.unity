@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eace8f75f42f8c4080febb782b023f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 6952824010388072024, guid: 473ada5a15089ad4791c23c0d9e202ce, type: 3}
+  coin: {fileID: 2275966468556143865, guid: 80b149e582d429b49b36d200d2774ae5, type: 3}
   respawntime: 1
 --- !u!4 &406450653
 Transform:
@@ -1305,8 +1305,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011493793}
-  - component: {fileID: 1011493792}
-  - component: {fileID: 1011493794}
   - component: {fileID: 1011493791}
   - component: {fileID: 1011493790}
   - component: {fileID: 1011493789}
@@ -1441,36 +1439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 643611166}
-  leaderBoard: CgkIycCrgbUbEAIQAA
+  leaderBoard: CgkIycCrgbUbEAIQAw
   acheievementIDs: 
---- !u!114 &1011493792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011493788}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364262da92203af4181ee5bb2363cc79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BackgroundElement:
-  - {fileID: 2004645817}
-  - {fileID: 1847902056}
-  - {fileID: 697172609}
-  currentScoreText: {fileID: 643611166}
-  currentScore: 0
-  heart1: {fileID: 0}
-  heart2: {fileID: 0}
-  heart3: {fileID: 0}
-  character: {fileID: 0}
-  panel: {fileID: 0}
-  coin: {fileID: 0}
-  obstacle: {fileID: 0}
-  pause: {fileID: 0}
-  ResetGame: {fileID: 0}
-  heartHardcore: {fileID: 0}
 --- !u!4 &1011493793
 Transform:
   m_ObjectHideFlags: 0
@@ -1485,31 +1455,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1011493794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011493788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217359c9a060dfe45876089c85b43593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BackgroundElement:
-  - {fileID: 2004645817}
-  - {fileID: 1847902056}
-  - {fileID: 697172609}
-  currentScoreText: {fileID: 643611166}
-  currentScore: 0
-  character: {fileID: 1324191793}
-  panel: {fileID: 1282252695}
-  coin: {fileID: 406450651}
-  obstacle: {fileID: 813378624}
-  pause: {fileID: 686975111}
-  ResetGame: {fileID: 1849815799}
-  heartHardcore: {fileID: 1716723473}
 --- !u!1 &1101726504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761281111}
   - component: {fileID: 1761281110}
+  - component: {fileID: 1761281112}
   m_Layer: 8
   m_Name: Sky
   m_TagString: Untagged
@@ -2624,6 +2570,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761281112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761281109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217359c9a060dfe45876089c85b43593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackgroundElement:
+  - {fileID: 2004645817}
+  - {fileID: 1847902056}
+  - {fileID: 697172609}
+  currentHardcoreText: {fileID: 643611166}
+  scoreHardcore: 0
+  character: {fileID: 1324191793}
+  panel: {fileID: 1282252695}
+  coin: {fileID: 406450651}
+  obstacle: {fileID: 813378624}
+  pause: {fileID: 686975111}
+  ResetGame: {fileID: 1849815799}
+  heartHardcore: {fileID: 1716723473}
 --- !u!1 &1847902054
 GameObject:
   m_ObjectHideFlags: 0

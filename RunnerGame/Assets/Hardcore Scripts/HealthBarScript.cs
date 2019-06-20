@@ -109,14 +109,14 @@ public class HealthBarScript : MonoBehaviour
 
     public static void PostToLeaderboard(int currentTimerText)
     {
-        Social.ReportScore(currentTimerText, GPGSIds.leaderboard_hardcore, (bool success) => {
+        Social.ReportScore(currentTimerText, GPGSIds.leaderboard_survival, (bool success) => {
             if(success)
             {
-                Debug.Log("Si Hard");
+                Debug.Log("Si Survival");
             }
             else
             {
-                Debug.LogError("No Hard");
+                Debug.LogError("No Survival");
             }
         });     
     }
