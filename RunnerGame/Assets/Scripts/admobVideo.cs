@@ -17,24 +17,18 @@ public class admobVideo : MonoBehaviour
              string adUnitId = "INSERT_IOS_INTERSTITIAL_AD_UNIT_ID_HERE";
          #else
              string adUnitId = "unexpected_platform";
-         #endif
-                 
+         #endif  
          // Create an interstitial.
          this.interstitial = new InterstitialAd(adUnitId);
-         // Called when the ad is closed
-        
          // Load an interstitial ad.
          this.interstitial.LoadAd(this.CreateAdRequest());
-         
      }
 
      
      // Returns an ad request
      private AdRequest CreateAdRequest()
      {
-         
-         return new AdRequest.Builder().Build();
-         
+         return new AdRequest.Builder().Build();  
      }
 
  

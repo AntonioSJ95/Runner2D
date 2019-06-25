@@ -7,8 +7,6 @@ public class Movement : MonoBehaviour
 public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-
-
     // Use this for initialization
     void Start () {
         rb = this.GetComponent<Rigidbody2D>();

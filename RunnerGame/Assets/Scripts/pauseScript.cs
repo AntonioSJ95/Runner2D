@@ -22,14 +22,6 @@ public class pauseScript : MonoBehaviour
         paused = false;
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
 
     public void Pause()
     {

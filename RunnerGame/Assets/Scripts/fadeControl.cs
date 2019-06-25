@@ -12,7 +12,6 @@ public class fadeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Fading());
     }
 
     // Update is called once per frame

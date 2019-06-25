@@ -19,13 +19,11 @@ public class Obstaclegenerator : MonoBehaviour
         a.transform.position = new Vector2(screenBounds.x * 2, Random.Range(-screenBounds.y, screenBounds.y));
     }
 
-
     IEnumerator coinWave()
     {
         while(true){
             yield return new WaitForSeconds(respawntime);
             spawnObstacle();
         }
-        
     }
 }
